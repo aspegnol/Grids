@@ -1,0 +1,264 @@
+object _1: TUNIFormsFormDef
+  Version = '2.00'
+  FormName = 'Wynagrodzenia w tabelce - tabelka'
+  SQL.Strings = (
+    'SELECT '
+    'ch.kdcharpracy_id,  '
+    'o.kdosoba_symbol,'
+    'o.kdosoba_nazwa,'
+    'st.kdstanowisko_nazwa,'
+    'kdtyppracownika_nazwa,'
+    'KDCHARPRACY_ETAT_PROCENT,'
+    'KDSTAWKA_WSP_STAWKI1,'
+    
+      'sum(CASE  WHEN plskladnikdef_symbol in ('#39'1001'#39','#39'1022'#39','#39'1023'#39','#39'10' +
+      '27'#39','#39'1029'#39','#39'1031'#39','#39'1032'#39','#39'1036'#39','#39'1037'#39','#39'1599'#39') then PLLISTADANA_' +
+      'WARTOSC_UWZG end) AS Zasadnicze,'
+    
+      'sum(CASE  WHEN plskladnikdef_symbol='#39'1020'#39' then PLLISTADANA_WART' +
+      'OSC_UWZG end) AS Inne,'
+    
+      'sum(CASE  WHEN plskladnikdef_symbol in ('#39'1006'#39','#39'1007'#39') then PLLI' +
+      'STADANA_WARTOSC_UWZG end) AS Stazowe,'
+    
+      'sum(CASE  WHEN plskladnikdef_symbol='#39'1009'#39' then PLLISTADANA_WART' +
+      'OSC_UWZG end) AS SluzbaCywil,'
+    
+      'sum(CASE  WHEN plskladnikdef_symbol='#39'1030'#39' then PLLISTADANA_WART' +
+      'OSC_UWZG end) AS Zadaniowy,'
+    
+      'sum(CASE  WHEN plskladnikdef_symbol='#39'1028'#39' then PLLISTADANA_WART' +
+      'OSC_UWZG end) AS Specjalny,'
+    
+      'sum(CASE  WHEN plskladnikdef_symbol='#39'1002'#39' then PLLISTADANA_WART' +
+      'OSC_UWZG end) AS Funkcyjny,'
+    
+      'sum(CASE  WHEN plskladnikdef_symbol in ('#39'1003'#39','#39'1010'#39') then PLLI' +
+      'STADANA_WARTOSC_UWZG end) AS Premia,'
+    
+      'sum(CASE  WHEN plskladnikdef_symbol in ('#39'1692'#39','#39'1100'#39') then PLLI' +
+      'STADANA_WARTOSC_UWZG end) AS NJ,'
+    
+      'sum(CASE  WHEN plskladnikdef_symbol in ('#39'1008'#39','#39'1050'#39') then PLLI' +
+      'STADANA_WARTOSC_UWZG end) AS ZwolnLek,'
+    
+      'sum(CASE  WHEN plskladnikdef_symbol in ('#39'1610'#39','#39'1611'#39','#39'1612'#39','#39'16' +
+      '13'#39','#39'1614'#39') then PLLISTADANA_WARTOSC_UWZG end) AS Zasilki,'
+    
+      'sum(CASE  WHEN plskladnikdef_symbol in ('#39'1033'#39','#39'1034'#39','#39'1035'#39') th' +
+      'en PLLISTADANA_WARTOSC_UWZG end) AS Nagroda'
+    'FROM'
+    'pllista li,'
+    'pllistadana ld,'
+    'pllistaosoba po,'
+    'kdcharpracy ch,'
+    'kdosoba1 o1,'
+    'kdosoba o,'
+    'plskladnikdef sk,'
+    'kdstanowisko st,'
+    'kdtyppracownika pr,'
+    'kdstawka st2'
+    ' WHERE'
+    'li.pllista_id in (:lista) and'
+    ' sk.plskladnikdef_id=ld.plskladnikdef_id AND '
+    'li.pllista_id=ld.pllista_id AND'
+    'po.pllistaosoba_id=ld.pllistaosoba_id AND'
+    'ch.kdcharpracy_id=po.kdcharpracy_id AND'
+    'st.kdstanowisko_id=ch.kdstanowisko_id and'
+    'ch.kdosoba1_id=o1.kdosoba1_id AND'
+    'o1.kdosoba_id=o.kdosoba_id and'
+    'pr.kdtyppracownika_id=ch.kdtyppracownika_id and'
+    'st2.kdcharpracy_id=ch.kdcharpracy_id'
+    
+      'GROUP BY    o.kdosoba_symbol,o.kdosoba_nazwa,ch.kdcharpracy_id, ' +
+      'st.kdstanowisko_nazwa,'
+    
+      'kdtyppracownika_nazwa, KDCHARPRACY_ETAT_PROCENT, KDSTAWKA_WSP_ST' +
+      'AWKI1')
+  Columns = <
+    item
+      FieldName = 'KDCHARPRACY_ID'
+      Caption = 'KDCHARPRACY_ID'
+      Enabled = False
+      Visible = False
+      Alignment = taLeftJustify
+      Width = 0
+    end
+    item
+      FieldName = 'KDOSOBA_SYMBOL'
+      Caption = 'Symbol'
+      Enabled = True
+      Visible = False
+      Alignment = taLeftJustify
+      Width = 50
+    end
+    item
+      FieldName = 'KDOSOBA_NAZWA'
+      Caption = 'Nazwa'
+      Enabled = True
+      Visible = True
+      Alignment = taLeftJustify
+      Width = 200
+    end
+    item
+      FieldName = 'KDSTANOWISKO_NAZWA'
+      Caption = 'Stanowisko'
+      Enabled = True
+      Visible = True
+      Alignment = taLeftJustify
+      Width = 300
+    end
+    item
+      FieldName = 'KDTYPPRACOWNIKA_NAZWA'
+      Caption = 'Typ pracown.'
+      Enabled = True
+      Visible = True
+      Alignment = taLeftJustify
+      Width = 300
+    end
+    item
+      FieldName = 'KDCHARPRACY_ETAT_PROCENT'
+      Caption = 'Etat %'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+    end
+    item
+      FieldName = 'KDSTAWKA_WSP_STAWKI1'
+      Caption = 'Wsp.stawki'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+    end
+    item
+      FieldName = 'ZASADNICZE'
+      Caption = 'Wyn.zasadn.'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'INNE'
+      Caption = 'INNE'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'STAZOWE'
+      Caption = 'Dod.sta'#380'owy'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'SLUZBACYWIL'
+      Caption = 'Dod.s'#322'.cyw.'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'ZADANIOWY'
+      Caption = 'Dod.zadan.'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'SPECJALNY'
+      Caption = 'Dod.specj.'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'FUNKCYJNY'
+      Caption = 'DF'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'PREMIA'
+      Caption = 'Premia'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'NJ'
+      Caption = 'NJ'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'ZWOLNLEK'
+      Caption = 'Zwoln.lek.'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'ZASILKI'
+      Caption = 'Zasi'#322'ki'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'NAGRODA'
+      Caption = 'Nagroda'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end>
+  PrimaryKey = 'KDCHARPRACY_ID'
+  OrderBy = 'KDOSOBA_NAZWA'
+  Params = <
+    item
+      Name = 'lista'
+      Caption = 'Lista nr'
+      DataType = ftString
+      ParamType = ptMultiselect
+      Line = 1
+      FieldName = 'PLLISTA_ID'
+      Values = <
+        item
+          Name = 'lista'
+          Value = ''
+          Checked = False
+        end>
+      Visible = True
+      DoNotUseAliasManager = False
+      DictionaryID = 0
+      AllowEmpty = False
+    end>
+end

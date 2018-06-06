@@ -1,0 +1,836 @@
+object _1: TUNIFormsFormDef
+  Version = '2.00'
+  FormName = 'kartoteka zarobkowa v2'
+  SQL.Strings = (
+    'SELECT'
+    'id,  symb AS Symbol, nazwa AS Nazwa,'
+    'Sum(styczen) AS M01,'
+    'Sum(luty) AS M02,'
+    'Sum(marzec) AS M03,'
+    'Sum(kwiecien) AS M04,'
+    'Sum(maj) AS M05,'
+    'Sum(czerwiec) AS M06,'
+    'Sum(lipiec) AS M07,'
+    'Sum(sierpien) AS M08,'
+    'Sum(wrzesien) AS M09,'
+    'Sum(pazdziernik) AS M10,'
+    'Sum(listopad) AS M11,'
+    'Sum(grudzien) AS M12'
+    'from'
+    '(SELECT  distinct'
+    'sk.plskladnikdef_id as Id,'
+    'plskladnikdef_symbol AS symb,'
+    'plskladnikdef_nazwa AS nazwa,'
+    'li.pllista_mies_ksieg AS pllista_mies_ksieg,'
+    
+      'Nvl((SELECT Sum(lida1.PLLISTADANA_WARTOSC_UWZG) FROM pllistadana' +
+      ' lida1, pllista li1, pllistaosoba po1 WHERE po1.pllistaosoba_id=' +
+      ' po.pllistaosoba_id AND li1.pllista_id=lida1.pllista_id '
+    
+      'AND po1.pllistaosoba_id=lida1.pllistaosoba_id AND lida1.plskladn' +
+      'ikdef_id=sk.plskladnikdef_id AND li.PLLISTA_MIES_KSIEG='#39'01'#39'),0) ' +
+      'AS Styczen,'
+    
+      'nvl((SELECT Sum(lida1.PLLISTADANA_WARTOSC_UWZG) FROM pllistadana' +
+      ' lida1, pllista li1, pllistaosoba po1 WHERE po1.pllistaosoba_id=' +
+      ' po.pllistaosoba_id AND li1.pllista_id=lida1.pllista_id '
+    
+      'AND po1.pllistaosoba_id=lida1.pllistaosoba_id AND lida1.plskladn' +
+      'ikdef_id=sk.plskladnikdef_id AND li.PLLISTA_MIES_KSIEG='#39'02'#39'),0) ' +
+      'AS Luty,'
+    
+      'nvl((SELECT Sum(lida1.PLLISTADANA_WARTOSC_UWZG) FROM pllistadana' +
+      ' lida1, pllista li1, pllistaosoba po1 WHERE po1.pllistaosoba_id=' +
+      ' po.pllistaosoba_id AND li1.pllista_id=lida1.pllista_id '
+    
+      'AND po1.pllistaosoba_id=lida1.pllistaosoba_id AND lida1.plskladn' +
+      'ikdef_id=sk.plskladnikdef_id AND li.PLLISTA_MIES_KSIEG='#39'03'#39'),0) ' +
+      'AS Marzec,'
+    
+      'nvl((SELECT Sum(lida1.PLLISTADANA_WARTOSC_UWZG) FROM pllistadana' +
+      ' lida1, pllista li1, pllistaosoba po1 WHERE po1.pllistaosoba_id=' +
+      ' po.pllistaosoba_id AND li1.pllista_id=lida1.pllista_id '
+    
+      'AND po1.pllistaosoba_id=lida1.pllistaosoba_id AND lida1.plskladn' +
+      'ikdef_id=sk.plskladnikdef_id AND li.PLLISTA_MIES_KSIEG='#39'04'#39'),0) ' +
+      'AS Kwiecien,'
+    
+      'nvl((SELECT Sum(lida1.PLLISTADANA_WARTOSC_UWZG) FROM pllistadana' +
+      ' lida1, pllista li1, pllistaosoba po1 WHERE po1.pllistaosoba_id=' +
+      ' po.pllistaosoba_id AND li1.pllista_id=lida1.pllista_id '
+    
+      'AND po1.pllistaosoba_id=lida1.pllistaosoba_id AND lida1.plskladn' +
+      'ikdef_id=sk.plskladnikdef_id AND li.PLLISTA_MIES_KSIEG='#39'05'#39'),0) ' +
+      'AS Maj,'
+    
+      'nvl((SELECT Sum(lida1.PLLISTADANA_WARTOSC_UWZG) FROM pllistadana' +
+      ' lida1, pllista li1, pllistaosoba po1 WHERE po1.pllistaosoba_id=' +
+      ' po.pllistaosoba_id AND li1.pllista_id=lida1.pllista_id '
+    
+      'AND po1.pllistaosoba_id=lida1.pllistaosoba_id AND lida1.plskladn' +
+      'ikdef_id=sk.plskladnikdef_id AND li.PLLISTA_MIES_KSIEG='#39'06'#39'),0) ' +
+      'AS Czerwiec,'
+    
+      'nvl((SELECT Sum(lida1.PLLISTADANA_WARTOSC_UWZG) FROM pllistadana' +
+      ' lida1, pllista li1, pllistaosoba po1 WHERE po1.pllistaosoba_id=' +
+      ' po.pllistaosoba_id AND li1.pllista_id=lida1.pllista_id '
+    
+      'AND po1.pllistaosoba_id=lida1.pllistaosoba_id AND lida1.plskladn' +
+      'ikdef_id=sk.plskladnikdef_id AND li.PLLISTA_MIES_KSIEG='#39'07'#39'),0) ' +
+      'AS Lipiec,'
+    
+      'nvl((SELECT Sum(lida1.PLLISTADANA_WARTOSC_UWZG) FROM pllistadana' +
+      ' lida1, pllista li1, pllistaosoba po1 WHERE po1.pllistaosoba_id=' +
+      ' po.pllistaosoba_id AND li1.pllista_id=lida1.pllista_id '
+    
+      'AND po1.pllistaosoba_id=lida1.pllistaosoba_id AND lida1.plskladn' +
+      'ikdef_id=sk.plskladnikdef_id AND li.PLLISTA_MIES_KSIEG='#39'08'#39'),0) ' +
+      'AS Sierpien,'
+    
+      'nvl((SELECT Sum(lida1.PLLISTADANA_WARTOSC_UWZG) FROM pllistadana' +
+      ' lida1, pllista li1, pllistaosoba po1 WHERE po1.pllistaosoba_id=' +
+      ' po.pllistaosoba_id AND li1.pllista_id=lida1.pllista_id '
+    
+      'AND po1.pllistaosoba_id=lida1.pllistaosoba_id AND lida1.plskladn' +
+      'ikdef_id=sk.plskladnikdef_id AND li.PLLISTA_MIES_KSIEG='#39'09'#39'),0) ' +
+      'AS Wrzesien,'
+    
+      'nvl((SELECT Sum(lida1.PLLISTADANA_WARTOSC_UWZG) FROM pllistadana' +
+      ' lida1, pllista li1, pllistaosoba po1 WHERE po1.pllistaosoba_id=' +
+      ' po.pllistaosoba_id AND li1.pllista_id=lida1.pllista_id '
+    
+      'AND po1.pllistaosoba_id=lida1.pllistaosoba_id AND lida1.plskladn' +
+      'ikdef_id=sk.plskladnikdef_id AND li.PLLISTA_MIES_KSIEG='#39'10'#39'),0) ' +
+      'AS Pazdziernik,'
+    
+      'nvl((SELECT Sum(lida1.PLLISTADANA_WARTOSC_UWZG) FROM pllistadana' +
+      ' lida1, pllista li1, pllistaosoba po1 WHERE po1.pllistaosoba_id=' +
+      ' po.pllistaosoba_id AND li1.pllista_id=lida1.pllista_id '
+    
+      'AND po1.pllistaosoba_id=lida1.pllistaosoba_id AND lida1.plskladn' +
+      'ikdef_id=sk.plskladnikdef_id AND li.PLLISTA_MIES_KSIEG='#39'11'#39'),0) ' +
+      'AS Listopad,'
+    
+      'nvl((SELECT Sum(lida1.PLLISTADANA_WARTOSC_UWZG) FROM pllistadana' +
+      ' lida1, pllista li1, pllistaosoba po1 WHERE po1.pllistaosoba_id=' +
+      ' po.pllistaosoba_id AND li1.pllista_id=lida1.pllista_id '
+    
+      'AND po1.pllistaosoba_id=lida1.pllistaosoba_id AND lida1.plskladn' +
+      'ikdef_id=sk.plskladnikdef_id AND li.PLLISTA_MIES_KSIEG='#39'12'#39'),0) ' +
+      'AS Grudzien'
+    'FROM'
+    'pllista li,'
+    'pllistadana ld,'
+    'pllistaosoba po,'
+    'kdcharpracy ch,'
+    'kdosoba1 o1,'
+    'plskladnikdef sk'
+    ' WHERE'
+    'ch.kdosoba1_id=o1.kdosoba1_id and'
+    ' sk.plskladnikdef_id=ld.plskladnikdef_id AND '
+    'li.pllista_id=ld.pllista_id AND'
+    'li.pllista_rok_ksieg=:Rok and'
+    'po.pllistaosoba_id=ld.pllistaosoba_id AND'
+    'ch.kdcharpracy_id=po.kdcharpracy_id  AND'
+    'PLLISTADANA_WARTOSC_UWZG<>'#39'0'#39'  and'
+    'o1.kdosoba_id = :Osoba )  GROUP BY symb, nazwa, id'
+    'UNION'
+    'SELECT 101 AS ID, '#39'2501'#39' AS Symbol, '#39'_Przych'#243'd'#39' AS Nazwa,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PRZYCHOD) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'01'#39'),0) M01,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PRZYCHOD) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba and PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'02'#39'),0) M02,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PRZYCHOD) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba  AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AN' +
+      'D PLZUSPRZYCHOD_MIES_KSIEG='#39'03'#39'),0) M03,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PRZYCHOD) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba  AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AN' +
+      'D PLZUSPRZYCHOD_MIES_KSIEG='#39'04'#39'),0) M04,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PRZYCHOD) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba  AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AN' +
+      'D PLZUSPRZYCHOD_MIES_KSIEG='#39'05'#39'),0) M05,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PRZYCHOD) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba  AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AN' +
+      'D PLZUSPRZYCHOD_MIES_KSIEG='#39'06'#39'),0) M06,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PRZYCHOD) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba  AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AN' +
+      'D PLZUSPRZYCHOD_MIES_KSIEG='#39'07'#39'),0) M07,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PRZYCHOD) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba  AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AN' +
+      'D PLZUSPRZYCHOD_MIES_KSIEG='#39'08'#39'),0) M08,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PRZYCHOD) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba  AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AN' +
+      'D PLZUSPRZYCHOD_MIES_KSIEG='#39'09'#39'),0) M09,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PRZYCHOD) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba  AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AN' +
+      'D PLZUSPRZYCHOD_MIES_KSIEG='#39'10'#39'),0) M10,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PRZYCHOD) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba  AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AN' +
+      'D PLZUSPRZYCHOD_MIES_KSIEG='#39'11'#39'),0) M11,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PRZYCHOD) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba  AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AN' +
+      'D PLZUSPRZYCHOD_MIES_KSIEG='#39'12'#39'),0) M12 FROM dual'
+    'UNION'
+    
+      'SELECT 102 AS ID, '#39'2502'#39' AS Symbol, '#39'_Podstawa emerytalno/rentow' +
+      'a'#39' AS Nazwa,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_ER) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'01'#39'),0) M01,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_ER) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'02'#39'),0) M02,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_ER) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'03'#39'),0) M03,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_ER) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'04'#39'),0) M04,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_ER) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'05'#39'),0) M05,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_ER) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'06'#39'),0) M06,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_ER) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'07'#39'),0) M07,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_ER) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'08'#39'),0) M08,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_ER) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'09'#39'),0) M09,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_ER) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'10'#39'),0) M10,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_ER) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'11'#39'),0) M11,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_ER) FROM plzusprzychod pl, k' +
+      'dcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'12'#39'),0) M12 FROM dual'
+    'UNION'
+    
+      'SELECT 103 AS ID, '#39'2503'#39' AS Symbol, '#39'_Podstawa ubezpieczenia zdr' +
+      'owotnego'#39' AS Nazwa,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_UB_ZD) FROM plzusprzychod pl' +
+      ', kdcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'01'#39'),0) M01,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_UB_ZD) FROM plzusprzychod pl' +
+      ', kdcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'02'#39'),0) M02,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_UB_ZD) FROM plzusprzychod pl' +
+      ', kdcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'03'#39'),0) M03,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_UB_ZD) FROM plzusprzychod pl' +
+      ', kdcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'04'#39'),0) M04,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_UB_ZD) FROM plzusprzychod pl' +
+      ', kdcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'05'#39'),0) M05,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_UB_ZD) FROM plzusprzychod pl' +
+      ', kdcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'06'#39'),0) M06,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_UB_ZD) FROM plzusprzychod pl' +
+      ', kdcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'07'#39'),0) M07,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_UB_ZD) FROM plzusprzychod pl' +
+      ', kdcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'08'#39'),0) M08,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_UB_ZD) FROM plzusprzychod pl' +
+      ', kdcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'09'#39'),0) M09,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_UB_ZD) FROM plzusprzychod pl' +
+      ', kdcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'10'#39'),0) M10,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_UB_ZD) FROM plzusprzychod pl' +
+      ', kdcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'11'#39'),0) M11,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_PODST_UB_ZD) FROM plzusprzychod pl' +
+      ', kdcharpracy ch, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'12'#39'),0) M12 FROM dual'
+    'UNION'
+    'SELECT 104 AS ID, '#39'2504'#39' AS Symbol, '#39'_ZUS Pracownik'#39' AS Nazwa,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PRA+PLZUSPRZYCHOD_SKL_RE_PR' +
+      'A+PLZUSPRZYCHOD_SKL_Ch_PRA) FROM plzusprzychod pl, kdcharpracy c' +
+      'h, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'01'#39'),0) M01,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PRA+PLZUSPRZYCHOD_SKL_RE_PR' +
+      'A+PLZUSPRZYCHOD_SKL_Ch_PRA) FROM plzusprzychod pl, kdcharpracy c' +
+      'h, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'02'#39'),0) M02,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PRA+PLZUSPRZYCHOD_SKL_RE_PR' +
+      'A+PLZUSPRZYCHOD_SKL_Ch_PRA) FROM plzusprzychod pl, kdcharpracy c' +
+      'h, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'03'#39'),0) M03,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PRA+PLZUSPRZYCHOD_SKL_RE_PR' +
+      'A+PLZUSPRZYCHOD_SKL_Ch_PRA) FROM plzusprzychod pl, kdcharpracy c' +
+      'h, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'04'#39'),0) M04,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PRA+PLZUSPRZYCHOD_SKL_RE_PR' +
+      'A+PLZUSPRZYCHOD_SKL_Ch_PRA) FROM plzusprzychod pl, kdcharpracy c' +
+      'h, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'05'#39'),0) M05,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PRA+PLZUSPRZYCHOD_SKL_RE_PR' +
+      'A+PLZUSPRZYCHOD_SKL_Ch_PRA) FROM plzusprzychod pl, kdcharpracy c' +
+      'h, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'06'#39'),0) M06,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PRA+PLZUSPRZYCHOD_SKL_RE_PR' +
+      'A+PLZUSPRZYCHOD_SKL_Ch_PRA) FROM plzusprzychod pl, kdcharpracy c' +
+      'h, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'07'#39'),0) M07,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PRA+PLZUSPRZYCHOD_SKL_RE_PR' +
+      'A+PLZUSPRZYCHOD_SKL_Ch_PRA) FROM plzusprzychod pl, kdcharpracy c' +
+      'h, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'08'#39'),0) M08,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PRA+PLZUSPRZYCHOD_SKL_RE_PR' +
+      'A+PLZUSPRZYCHOD_SKL_Ch_PRA) FROM plzusprzychod pl, kdcharpracy c' +
+      'h, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'09'#39'),0) M09,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PRA+PLZUSPRZYCHOD_SKL_RE_PR' +
+      'A+PLZUSPRZYCHOD_SKL_Ch_PRA) FROM plzusprzychod pl, kdcharpracy c' +
+      'h, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'10'#39'),0) M10,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PRA+PLZUSPRZYCHOD_SKL_RE_PR' +
+      'A+PLZUSPRZYCHOD_SKL_Ch_PRA) FROM plzusprzychod pl, kdcharpracy c' +
+      'h, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'11'#39'),0) M11,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PRA+PLZUSPRZYCHOD_SKL_RE_PR' +
+      'A+PLZUSPRZYCHOD_SKL_Ch_PRA) FROM plzusprzychod pl, kdcharpracy c' +
+      'h, kdosoba1 o1 WHERE '
+    
+      'pl.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdosoba1_id=o1.kdosob' +
+      'a1_id AND kdosoba_id=:Osoba AND PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND' +
+      ' PLZUSPRZYCHOD_MIES_KSIEG='#39'12'#39'),0) M12 FROM dual'
+    'UNION'
+    'SELECT 105 AS ID, '#39'2505'#39' AS Symbol, '#39'_ZUS Pracodawca'#39' AS Nazwa,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PLA+PLZUSPRZYCHOD_SKL_RE_PL' +
+      'A+PLZUSPRZYCHOD_SKL_WY_PLA+PLZUSPRZYCHOD_SKL_FP+PLZUSPRZYCHOD_SK' +
+      'L_FEP+PLZUSPRZYCHOD_SKL_FGSP) FROM plzusprzychod pl, '
+    
+      'kdcharpracy ch, kdosoba1 o1 WHERE pl.kdcharpracy_id=ch.kdcharpra' +
+      'cy_id AND ch.kdosoba1_id=o1.kdosoba1_id AND kdosoba_id=:Osoba AN' +
+      'D PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND PLZUSPRZYCHOD_MIES_KSIEG='#39'01'#39 +
+      '),0) M01,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PLA+PLZUSPRZYCHOD_SKL_RE_PL' +
+      'A+PLZUSPRZYCHOD_SKL_WY_PLA+PLZUSPRZYCHOD_SKL_FP+PLZUSPRZYCHOD_SK' +
+      'L_FEP+PLZUSPRZYCHOD_SKL_FGSP) FROM plzusprzychod pl, '
+    
+      'kdcharpracy ch, kdosoba1 o1 WHERE pl.kdcharpracy_id=ch.kdcharpra' +
+      'cy_id AND ch.kdosoba1_id=o1.kdosoba1_id AND kdosoba_id=:Osoba AN' +
+      'D PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND PLZUSPRZYCHOD_MIES_KSIEG='#39'02'#39 +
+      '),0) M02,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PLA+PLZUSPRZYCHOD_SKL_RE_PL' +
+      'A+PLZUSPRZYCHOD_SKL_WY_PLA+PLZUSPRZYCHOD_SKL_FP+PLZUSPRZYCHOD_SK' +
+      'L_FEP+PLZUSPRZYCHOD_SKL_FGSP) FROM plzusprzychod pl, '
+    
+      'kdcharpracy ch, kdosoba1 o1 WHERE pl.kdcharpracy_id=ch.kdcharpra' +
+      'cy_id AND ch.kdosoba1_id=o1.kdosoba1_id AND kdosoba_id=:Osoba AN' +
+      'D PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND PLZUSPRZYCHOD_MIES_KSIEG='#39'03'#39 +
+      '),0) M03,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PLA+PLZUSPRZYCHOD_SKL_RE_PL' +
+      'A+PLZUSPRZYCHOD_SKL_WY_PLA+PLZUSPRZYCHOD_SKL_FP+PLZUSPRZYCHOD_SK' +
+      'L_FEP+PLZUSPRZYCHOD_SKL_FGSP) FROM plzusprzychod pl, '
+    
+      'kdcharpracy ch, kdosoba1 o1 WHERE pl.kdcharpracy_id=ch.kdcharpra' +
+      'cy_id AND ch.kdosoba1_id=o1.kdosoba1_id AND kdosoba_id=:Osoba AN' +
+      'D PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND PLZUSPRZYCHOD_MIES_KSIEG='#39'04'#39 +
+      '),0) M04,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PLA+PLZUSPRZYCHOD_SKL_RE_PL' +
+      'A+PLZUSPRZYCHOD_SKL_WY_PLA+PLZUSPRZYCHOD_SKL_FP+PLZUSPRZYCHOD_SK' +
+      'L_FEP+PLZUSPRZYCHOD_SKL_FGSP) FROM plzusprzychod pl, '
+    
+      'kdcharpracy ch, kdosoba1 o1 WHERE pl.kdcharpracy_id=ch.kdcharpra' +
+      'cy_id AND ch.kdosoba1_id=o1.kdosoba1_id AND kdosoba_id=:Osoba AN' +
+      'D PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND PLZUSPRZYCHOD_MIES_KSIEG='#39'05'#39 +
+      '),0) M05,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PLA+PLZUSPRZYCHOD_SKL_RE_PL' +
+      'A+PLZUSPRZYCHOD_SKL_WY_PLA+PLZUSPRZYCHOD_SKL_FP+PLZUSPRZYCHOD_SK' +
+      'L_FEP+PLZUSPRZYCHOD_SKL_FGSP) FROM plzusprzychod pl, '
+    
+      'kdcharpracy ch, kdosoba1 o1 WHERE pl.kdcharpracy_id=ch.kdcharpra' +
+      'cy_id AND ch.kdosoba1_id=o1.kdosoba1_id AND kdosoba_id=:Osoba AN' +
+      'D PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND PLZUSPRZYCHOD_MIES_KSIEG='#39'06'#39 +
+      '),0) M06,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PLA+PLZUSPRZYCHOD_SKL_RE_PL' +
+      'A+PLZUSPRZYCHOD_SKL_WY_PLA+PLZUSPRZYCHOD_SKL_FP+PLZUSPRZYCHOD_SK' +
+      'L_FEP+PLZUSPRZYCHOD_SKL_FGSP) FROM plzusprzychod pl, '
+    
+      'kdcharpracy ch, kdosoba1 o1 WHERE pl.kdcharpracy_id=ch.kdcharpra' +
+      'cy_id AND ch.kdosoba1_id=o1.kdosoba1_id AND kdosoba_id=:Osoba AN' +
+      'D PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND PLZUSPRZYCHOD_MIES_KSIEG='#39'07'#39 +
+      '),0) M07,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PLA+PLZUSPRZYCHOD_SKL_RE_PL' +
+      'A+PLZUSPRZYCHOD_SKL_WY_PLA+PLZUSPRZYCHOD_SKL_FP+PLZUSPRZYCHOD_SK' +
+      'L_FEP+PLZUSPRZYCHOD_SKL_FGSP) FROM plzusprzychod pl, '
+    
+      'kdcharpracy ch, kdosoba1 o1 WHERE pl.kdcharpracy_id=ch.kdcharpra' +
+      'cy_id AND ch.kdosoba1_id=o1.kdosoba1_id AND kdosoba_id=:Osoba AN' +
+      'D PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND PLZUSPRZYCHOD_MIES_KSIEG='#39'08'#39 +
+      '),0) M08,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PLA+PLZUSPRZYCHOD_SKL_RE_PL' +
+      'A+PLZUSPRZYCHOD_SKL_WY_PLA+PLZUSPRZYCHOD_SKL_FP+PLZUSPRZYCHOD_SK' +
+      'L_FEP+PLZUSPRZYCHOD_SKL_FGSP) FROM plzusprzychod pl, '
+    
+      'kdcharpracy ch, kdosoba1 o1 WHERE pl.kdcharpracy_id=ch.kdcharpra' +
+      'cy_id AND ch.kdosoba1_id=o1.kdosoba1_id AND kdosoba_id=:Osoba AN' +
+      'D PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND PLZUSPRZYCHOD_MIES_KSIEG='#39'09'#39 +
+      '),0) M09,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PLA+PLZUSPRZYCHOD_SKL_RE_PL' +
+      'A+PLZUSPRZYCHOD_SKL_WY_PLA+PLZUSPRZYCHOD_SKL_FP+PLZUSPRZYCHOD_SK' +
+      'L_FEP+PLZUSPRZYCHOD_SKL_FGSP) FROM plzusprzychod pl, '
+    
+      'kdcharpracy ch, kdosoba1 o1 WHERE pl.kdcharpracy_id=ch.kdcharpra' +
+      'cy_id AND ch.kdosoba1_id=o1.kdosoba1_id AND kdosoba_id=:Osoba AN' +
+      'D PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND PLZUSPRZYCHOD_MIES_KSIEG='#39'10'#39 +
+      '),0) M10,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PLA+PLZUSPRZYCHOD_SKL_RE_PL' +
+      'A+PLZUSPRZYCHOD_SKL_WY_PLA+PLZUSPRZYCHOD_SKL_FP+PLZUSPRZYCHOD_SK' +
+      'L_FEP+PLZUSPRZYCHOD_SKL_FGSP) FROM plzusprzychod pl, '
+    
+      'kdcharpracy ch, kdosoba1 o1 WHERE pl.kdcharpracy_id=ch.kdcharpra' +
+      'cy_id AND ch.kdosoba1_id=o1.kdosoba1_id AND kdosoba_id=:Osoba AN' +
+      'D PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND PLZUSPRZYCHOD_MIES_KSIEG='#39'11'#39 +
+      '),0) M11,'
+    
+      'Nvl((SELECT Sum(PLZUSPRZYCHOD_SKL_EM_PLA+PLZUSPRZYCHOD_SKL_RE_PL' +
+      'A+PLZUSPRZYCHOD_SKL_WY_PLA+PLZUSPRZYCHOD_SKL_FP+PLZUSPRZYCHOD_SK' +
+      'L_FEP+PLZUSPRZYCHOD_SKL_FGSP) FROM plzusprzychod pl, '
+    
+      'kdcharpracy ch, kdosoba1 o1 WHERE pl.kdcharpracy_id=ch.kdcharpra' +
+      'cy_id AND ch.kdosoba1_id=o1.kdosoba1_id AND kdosoba_id=:Osoba AN' +
+      'D PLZUSPRZYCHOD_ROK_KSIEG=:Rok AND PLZUSPRZYCHOD_MIES_KSIEG='#39'12'#39 +
+      '),0) M12 '
+    'FROM dual'
+    'UNION'
+    
+      'SELECT 106 AS ID, '#39'0999'#39' AS Symbol, (SELECT kdosoba_nazwa FROM k' +
+      'dosoba WHERE kdosoba_id=:Osoba)||'#39'_Stawka zasz.aktualna'#39' AS Nazw' +
+      'a,'
+    
+      '(SELECT st.KDSTAWKA_STAWKA1 FROM kdstawka st, kdcharpracy ch, kd' +
+      'osoba1 o1 WHERE st.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdoso' +
+      'ba1_id=o1.kdosoba1_id AND'
+    'o1.kdosoba_id=:Osoba AND KDTYPCHARPRACY_ID=1) M01,'
+    
+      '(SELECT st.KDSTAWKA_STAWKA1 FROM kdstawka st, kdcharpracy ch, kd' +
+      'osoba1 o1 WHERE st.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdoso' +
+      'ba1_id=o1.kdosoba1_id AND'
+    'o1.kdosoba_id=:Osoba AND KDTYPCHARPRACY_ID=1) M02,'
+    
+      '(SELECT st.KDSTAWKA_STAWKA1 FROM kdstawka st, kdcharpracy ch, kd' +
+      'osoba1 o1 WHERE st.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdoso' +
+      'ba1_id=o1.kdosoba1_id AND'
+    'o1.kdosoba_id=:Osoba AND KDTYPCHARPRACY_ID=1) M03,'
+    
+      '(SELECT st.KDSTAWKA_STAWKA1 FROM kdstawka st, kdcharpracy ch, kd' +
+      'osoba1 o1 WHERE st.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdoso' +
+      'ba1_id=o1.kdosoba1_id AND'
+    'o1.kdosoba_id=:Osoba AND KDTYPCHARPRACY_ID=1) M04,'
+    
+      '(SELECT st.KDSTAWKA_STAWKA1 FROM kdstawka st, kdcharpracy ch, kd' +
+      'osoba1 o1 WHERE st.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdoso' +
+      'ba1_id=o1.kdosoba1_id AND'
+    'o1.kdosoba_id=:Osoba AND KDTYPCHARPRACY_ID=1) M05,'
+    
+      '(SELECT st.KDSTAWKA_STAWKA1 FROM kdstawka st, kdcharpracy ch, kd' +
+      'osoba1 o1 WHERE st.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdoso' +
+      'ba1_id=o1.kdosoba1_id AND'
+    'o1.kdosoba_id=:Osoba AND KDTYPCHARPRACY_ID=1) M06,'
+    
+      '(SELECT st.KDSTAWKA_STAWKA1 FROM kdstawka st, kdcharpracy ch, kd' +
+      'osoba1 o1 WHERE st.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdoso' +
+      'ba1_id=o1.kdosoba1_id AND'
+    'o1.kdosoba_id=:Osoba AND KDTYPCHARPRACY_ID=1) M07,'
+    
+      '(SELECT st.KDSTAWKA_STAWKA1 FROM kdstawka st, kdcharpracy ch, kd' +
+      'osoba1 o1 WHERE st.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdoso' +
+      'ba1_id=o1.kdosoba1_id AND'
+    'o1.kdosoba_id=:Osoba AND KDTYPCHARPRACY_ID=1) M08,'
+    
+      '(SELECT st.KDSTAWKA_STAWKA1 FROM kdstawka st, kdcharpracy ch, kd' +
+      'osoba1 o1 WHERE st.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdoso' +
+      'ba1_id=o1.kdosoba1_id AND'
+    'o1.kdosoba_id=:Osoba AND KDTYPCHARPRACY_ID=1) M09,'
+    
+      '(SELECT st.KDSTAWKA_STAWKA1 FROM kdstawka st, kdcharpracy ch, kd' +
+      'osoba1 o1 WHERE st.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdoso' +
+      'ba1_id=o1.kdosoba1_id AND'
+    'o1.kdosoba_id=:Osoba AND KDTYPCHARPRACY_ID=1) M10,'
+    
+      '(SELECT st.KDSTAWKA_STAWKA1 FROM kdstawka st, kdcharpracy ch, kd' +
+      'osoba1 o1 WHERE st.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdoso' +
+      'ba1_id=o1.kdosoba1_id AND'
+    'o1.kdosoba_id=:Osoba AND KDTYPCHARPRACY_ID=1) M11,'
+    
+      '(SELECT st.KDSTAWKA_STAWKA1 FROM kdstawka st, kdcharpracy ch, kd' +
+      'osoba1 o1 WHERE st.kdcharpracy_id=ch.kdcharpracy_id AND ch.kdoso' +
+      'ba1_id=o1.kdosoba1_id AND'
+    'o1.kdosoba_id=:Osoba AND KDTYPCHARPRACY_ID=1) M12'
+    'FROM dual')
+  Columns = <
+    item
+      FieldName = 'ID'
+      Caption = 'ID'
+      Enabled = True
+      Visible = False
+      Alignment = taRightJustify
+      Width = 100
+    end
+    item
+      FieldName = 'SYMBOL'
+      Caption = 'SYMBOL'
+      Enabled = True
+      Visible = True
+      Alignment = taLeftJustify
+      Width = 50
+    end
+    item
+      FieldName = 'NAZWA'
+      Caption = 'NAZWA'
+      Enabled = True
+      Visible = True
+      Alignment = taLeftJustify
+      Width = 300
+    end
+    item
+      FieldName = 'M01'
+      Caption = 'M01'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'M02'
+      Caption = 'M02'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'M03'
+      Caption = 'M03'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'M04'
+      Caption = 'M04'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'M05'
+      Caption = 'M05'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'M06'
+      Caption = 'M06'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'M07'
+      Caption = 'M07'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'M08'
+      Caption = 'M08'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'M09'
+      Caption = 'M09'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'M10'
+      Caption = 'M10'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'M11'
+      Caption = 'M11'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end
+    item
+      FieldName = 'M12'
+      Caption = 'M12'
+      Enabled = True
+      Visible = True
+      Alignment = taRightJustify
+      Width = 100
+      DisplayFormat = '# ##0.00'
+    end>
+  PrimaryKey = 'ID'
+  OrderBy = 'SYMBOL'
+  Params = <
+    item
+      Name = 'Rok'
+      Caption = 'Rok'
+      DataType = ftString
+      ParamType = ptEqual
+      Line = 1
+      FieldName = 'PLLISTA_ROK_KSIEG'
+      Values = <>
+      Visible = True
+      DoNotUseAliasManager = True
+      DictionaryID = 0
+      AllowEmpty = False
+    end
+    item
+      Name = 'Osoba'
+      Caption = 'Osoba'
+      DataType = ftString
+      ParamType = ptEqual
+      Line = 1
+      FieldName = 'KDOSOBA_ID'
+      Values = <>
+      Visible = True
+      DoNotUseAliasManager = False
+      DictionaryID = 0
+      AllowEmpty = False
+    end>
+end
